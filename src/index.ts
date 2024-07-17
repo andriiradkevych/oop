@@ -1,12 +1,15 @@
-class MyElement extends HTMLElement {
+import Keypad from "components/Keypad";
+
+class Calculator extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
 
     const container = document.createElement("div");
-    container.textContent = "Hello, Oop!";
+    container.textContent = "Calculator";
     shadow.appendChild(container);
   }
 }
 
-customElements.define("my-element", MyElement);
+customElements.define("calculator-element", Calculator);
+customElements.define("keypad-element", Keypad);
