@@ -1,6 +1,7 @@
 import { css } from "helpers/html";
 
-import Styling from "components/Styling";
+import Styling from "services/styling";
+import ElementBuilder from "services/builder/element";
 
 const styling = new Styling();
 
@@ -31,18 +32,16 @@ const style = styling.getStyle();
 class Screen extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: "open" });
 
-    const container = document.createElement("div");
-    const input = document.createElement("input");
-
-    container.classList.add(ClassNames.border);
-    input.classList.add(ClassNames.input);
-
-    container.appendChild(style);
-    container.appendChild(input);
-
-    shadow.appendChild(container);
+    this.attachShadow({ mode: "open" }).appendChild(
+      new ElementBuilder("div")
+        .setClass(ClassNames.border)
+        .appendChild(style)
+        .appendChild(
+          new ElementBuilder("input").setClass(ClassNames.input).getElement()
+        )
+        .getElement()
+    );
   }
 }
 

@@ -1,6 +1,7 @@
 import { css } from "helpers/html";
 
-import Styling from "components/Styling";
+import Styling from "services/styling";
+import ElementBuilder from "services/builder/element";
 
 const styling = new Styling();
 
@@ -25,15 +26,13 @@ const style = styling.getStyle();
 class Keypad extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: "open" });
 
-    const container = document.createElement("div");
-
-    container.classList.add(ClassNames.root);
-
-    container.appendChild(style);
-
-    shadow.appendChild(container);
+    this.attachShadow({ mode: "open" }).appendChild(
+      new ElementBuilder("div")
+        .setClass(ClassNames.root)
+        .appendChild(style)
+        .getElement()
+    );
   }
 }
 
