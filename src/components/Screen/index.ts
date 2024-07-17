@@ -16,7 +16,7 @@ styling.setStyle(css`
     border: 1px solid var(--gS5jXb);
     border-radius: 8px;
     margin: auto;
-    padding: 10px 14px 0 10px;
+    padding: 4px;
     box-sizing: border-box;
   }
   .${ClassNames.input} {
@@ -41,6 +41,7 @@ class Screen extends HTMLElement {
 
     container.appendChild(style);
     container.appendChild(input);
+
     shadow.appendChild(container);
   }
 }

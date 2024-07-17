@@ -1,3 +1,5 @@
+import "./styles.css";
+
 import Keypad from "components/Keypad";
 import Screen from "components/Screen";
 
