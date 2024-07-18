@@ -1,10 +1,12 @@
 import { HTMLTag } from "enums/tag";
 
-interface IListBuilder {
+interface IElementListBuilder {
   list: Element[];
 }
 
-class ListBuilder<T extends (string | number)[]> implements IListBuilder {
+class ELementListBuilder<T extends (string | number)[]>
+  implements IElementListBuilder
+{
   list: Element[];
 
   constructor(arr: T, tagName: HTMLTag) {
@@ -28,4 +30,4 @@ class ListBuilder<T extends (string | number)[]> implements IListBuilder {
   }
 }
 
-export default ListBuilder;
+export default ELementListBuilder;

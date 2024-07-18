@@ -4,7 +4,7 @@ import { css } from "helpers/html";
 
 import Styling from "services/styling";
 import ElementBuilder from "services/builder/element";
-import ListBuilder from "services/builder/list";
+import ELementListBuilder from "services/builder/list";
 
 const styling = new Styling();
 
@@ -45,10 +45,13 @@ class Keypad extends HTMLElement {
     const actionButtons = ["+", "-", "/", "*", ".", "="];
     const numberButtons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    const actionsButtonsList = new ListBuilder(actionButtons, HTMLTag.button)
+    const actionsButtonsList = new ELementListBuilder(
+      actionButtons,
+      HTMLTag.button
+    )
       .setClass(ClassNames.button)
       .getList();
-    const numberButtonsList = new ListBuilder<number[]>(
+    const numberButtonsList = new ELementListBuilder<number[]>(
       numberButtons,
       HTMLTag.button
     )
