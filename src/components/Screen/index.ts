@@ -1,3 +1,5 @@
+import { HTMLTag } from "enums/tag";
+
 import { css } from "helpers/html";
 
 import Styling from "services/styling";
@@ -23,6 +25,7 @@ styling.setStyle(css`
     width: inherit;
     text-align: right;
     padding-right: 16px;
+    font-size: 2rem;
   }
 `);
 
@@ -33,11 +36,13 @@ class Screen extends HTMLElement {
     super();
 
     this.attachShadow({ mode: "open" }).appendChild(
-      new ElementBuilder("div")
+      new ElementBuilder(HTMLTag.div)
         .setClass(ClassNames.root)
         .appendChild(style)
         .appendChild(
-          new ElementBuilder("input").setClass(ClassNames.input).getElement()
+          new ElementBuilder(HTMLTag.input)
+            .setClass(ClassNames.input)
+            .getElement()
         )
         .getElement()
     );

@@ -1,3 +1,5 @@
+import { HTMLTag } from "enums/tag";
+
 interface IElementBulder {
   element: Element;
   setClass: (className: string) => void;
@@ -8,7 +10,7 @@ interface IElementBulder {
 class ElementBuilder implements IElementBulder {
   element: Element;
 
-  constructor(tagName: string) {
+  constructor(tagName: HTMLTag) {
     this.element = document.createElement(tagName);
   }
 
@@ -16,8 +18,15 @@ class ElementBuilder implements IElementBulder {
     this.element.classList.add(className);
     return this;
   }
-  appendChild(el: Element) {
-    this.element.appendChild(el);
+  appendChild(el: Element | Element[]) {
+    if (Array.isArray(el)) {
+      el.forEach((element) => {
+        this.element.appendChild(element);
+      });
+    } else {
+      this.element.appendChild(el);
+    }
+
     return this;
   }
   getElement() {
