@@ -6,24 +6,23 @@ import ElementBuilder from "services/builder/element";
 const styling = new Styling();
 
 enum ClassNames {
-  border = "border",
+  root = "root",
   input = "input",
 }
 
 styling.setStyle(css`
-  .${ClassNames.border} {
+  .${ClassNames.root} {
     width: 98.5%;
+    margin: auto;
+  }
+  .${ClassNames.input} {
     height: 72px;
     border: 1px solid var(--gS5jXb);
     border-radius: 8px;
-    margin: auto;
     padding: 4px;
-    box-sizing: border-box;
-  }
-  .${ClassNames.input} {
-    width: 100%;
-    height: 100%;
-    border: none;
+    width: inherit;
+    text-align: right;
+    padding-right: 16px;
   }
 `);
 
@@ -35,7 +34,7 @@ class Screen extends HTMLElement {
 
     this.attachShadow({ mode: "open" }).appendChild(
       new ElementBuilder("div")
-        .setClass(ClassNames.border)
+        .setClass(ClassNames.root)
         .appendChild(style)
         .appendChild(
           new ElementBuilder("input").setClass(ClassNames.input).getElement()

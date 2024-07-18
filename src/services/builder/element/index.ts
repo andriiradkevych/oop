@@ -16,8 +16,8 @@ class ElementBuilder implements IElementBulder {
     this.element.classList.add(className);
     return this;
   }
-  appendChild(style: Element) {
-    this.element.appendChild(style);
+  appendChild(el: Element) {
+    this.element.appendChild(el);
     return this;
   }
   getElement() {

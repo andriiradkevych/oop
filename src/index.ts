@@ -3,11 +3,7 @@ import "./styles.css";
 import Keypad from "components/Keypad";
 import Screen from "components/Screen";
 
-class Calculator extends HTMLElement {
-  constructor() {
-    super();
-  }
-}
+class Calculator extends HTMLElement {}
 
 if ("customElements" in window) {
   customElements.define("calculator-el", Calculator);

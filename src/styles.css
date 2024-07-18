@@ -1,3 +1,7 @@
 :root {
     --gS5jXb: #313335;
 }
+
+* {
+    box-sizing: border-box;
+}

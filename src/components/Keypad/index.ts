@@ -14,7 +14,6 @@ styling.setStyle(css`
     width: 98.5%;
     height: 200px;
     border: 1px solid var(--gS5jXb);
-    box-sizing: border-box;
     border-radius: 8px;
     margin: auto;
     margin-top: 16px;
