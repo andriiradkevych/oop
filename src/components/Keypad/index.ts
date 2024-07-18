@@ -1,4 +1,5 @@
 import { HTMLTag } from "enums/tag";
+import { Events } from "enums/events";
 
 import { css } from "helpers/html";
 
@@ -64,6 +65,7 @@ class Keypad extends HTMLElement {
         .appendChild(style)
         .appendChild(
           new ElementBuilder(HTMLTag.div)
+            .attachEventListener(Events.click, this.onClick)
             .setClass(ClassNames.list)
             .appendChild(actionsButtonsList)
             .appendChild(numberButtonsList)
@@ -71,6 +73,9 @@ class Keypad extends HTMLElement {
         )
         .getElement()
     );
+  }
+  onClick(event: Event) {
+    console.log(event.target, "event");
   }
 }
 

@@ -1,10 +1,15 @@
 import { HTMLTag } from "enums/tag";
+import { Events } from "enums/events";
 
 interface IElementBulder {
   element: Element;
   setClass: (className: string) => void;
   appendChild: (style: Element) => void;
   getElement: () => Element;
+  attachEventListener: (
+    eventName: Events,
+    callback: (event: Event) => void
+  ) => void;
 }
 
 class ElementBuilder implements IElementBulder {
@@ -31,6 +36,10 @@ class ElementBuilder implements IElementBulder {
   }
   getElement() {
     return this.element;
+  }
+  attachEventListener(eventName: Events, callback: (event: Event) => void) {
+    this.element.addEventListener(eventName, callback);
+    return this;
   }
 }
 
